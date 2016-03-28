@@ -1,0 +1,82 @@
+<html ng-app="etd">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/styles/style.css">
+</head>
+
+<body ng-controller="MainController as mc" class="container">
+
+    {{2+2}}
+
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h1 style="color:dodgerblue; background-color:#093218">Preview Gallery</h1>
+        </div>
+    </div>
+    <div class="row container-fluid">
+        <div class="col-md-6">
+
+            <!--<form ng-submit="tc.addItem" class="form">
+                <div class="form-group">
+                    <label for=""></label>
+                    <input type="text" ng-model="tc.item.piece" class="form-control" placeholder="Please enter name of Piece">
+                    <input type="text" ng-model="tc.item.artist" class="form-control" placeholder="Please enter name of Artist">
+                    <input type="text" ng-model="tc.item.URL" class="form-control" placeholder="Please enter URL ">
+                </div>
+                <button type="submit">Preview a piece</button>
+                <span class="badge" ng-click="tc.removeItem($index)">X</span></li>
+                <br>
+                <br>
+                 <button type="submit">Add piece to gallery</button>
+            </form>-->
+
+            <input type="text" placeholder="Name of piece" ng-model="piece.title" />
+            </br>
+            </br>
+             </br>
+            <input type="text" placeholder="Artist who created it" ng-model="piece.artist" />
+            </br>
+            </br>
+             </br>
+            <input type="url" placeholder="URL for image" ng-model="piece.image" />
+            </br>
+            </br>
+             </br>
+
+            <button ng-click="current(piece)">Add piece to gallery</button>
+        </div>
+        <div id="trial-gallery" class="col-md-6">
+            <img src="{{piece.image}}" alt="Current piece" width="400px">
+            <h4>{{piece.title}}</h4>
+            <h5>{{piece.artist}}</h5>
+        </div>
+    </div>
+    <div id="collection" class="row container-fluid">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 style="color:magenta; background-color:#093218">Gallery</h2>
+            </div>
+        </div>
+        <div class="col-md-4" ng-repeat="piece in gallery track by $index">
+            <div> <img src="{{piece.image}}" alt="" width="200px">
+                <h4>{{piece.title}}</h4>
+                <h5>{{piece.artist}}</h5>
+                <span class="badge" ng-click="removePiece($index)">X</span></div>
+        </div>
+    </div>
+
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+
+    <script src="app/app.js"></script>
+    <script src="app/components/todo/mainController.js"></script>
+
+</body>
+
+</html>
